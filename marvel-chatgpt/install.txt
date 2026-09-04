@@ -1,0 +1,3 @@
+dnf install ncurses-devel
+dnf install openssl-devel
+gcc -Wall -Wextra ~/Documents/Antivirus.c -o Antivirus.out -lcrypto
