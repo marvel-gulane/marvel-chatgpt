@@ -1,0 +1,127 @@
+! ============================================================
+! COLOR-VISION-FRIENDLY XTERM
+! Browser <-> XTerm copy/paste friendly configuration
+! ============================================================
+
+! ----------------------------
+! Window
+! ----------------------------
+
+XTerm*title: XTerm
+XTerm*geometry: 100x32
+XTerm*faceName: Monospace
+XTerm*faceSize: 12
+
+XTerm*background: #10141c
+XTerm*foreground: #e6edf3
+XTerm*cursorColor: #ffffff
+XTerm*cursorBlink: true
+
+! ----------------------------
+! Selection / Clipboard
+! ----------------------------
+
+! Keep selected text highlighted
+XTerm*keepSelection: true
+
+! Copy normal XTerm selections to CLIPBOARD
+XTerm*selectToClipboard: true
+
+! Also maintain PRIMARY selection
+XTerm*selectToPrimary: true
+
+! Highlight
+XTerm*highlightColor: #334155
+XTerm*highlightTextColor: #ffffff
+
+! ----------------------------
+! Mouse copy/paste
+! ----------------------------
+
+! Left mouse:
+!   Select text
+!
+! Middle mouse:
+!   Paste PRIMARY selection
+!
+! Ctrl+Shift+C / Ctrl+Shift+V:
+!   Clipboard copy/paste
+
+XTerm*translations: #override \
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>Insert: insert-selection(CLIPBOARD)
+
+! ----------------------------
+! ANSI COLORS
+! ----------------------------
+
+! Black
+XTerm*color0:  #151922
+XTerm*color8:  #596579
+
+! Red
+XTerm*color1:  #ff6b6b
+XTerm*color9:  #ff8787
+
+! Green/yellow-green
+XTerm*color2:  #b8e050
+XTerm*color10: #d9f99d
+
+! Yellow
+XTerm*color3:  #ffd166
+XTerm*color11: #ffe08a
+
+! Blue
+XTerm*color4:  #4dabf7
+XTerm*color12: #74c0fc
+
+! Violet
+XTerm*color5:  #c084fc
+XTerm*color13: #d8b4fe
+
+! Cyan
+XTerm*color6:  #22d3ee
+XTerm*color14: #67e8f9
+
+! White
+XTerm*color7:  #d8dee9
+XTerm*color15: #ffffff
+
+! ----------------------------
+! Readability
+! ----------------------------
+
+XTerm*allowBoldFonts: true
+XTerm*boldMode: true
+
+XTerm*colorBD: #ffffff
+
+! Underlined text
+XTerm*colorUL: #67e8f9
+XTerm*underLine: true
+
+! ----------------------------
+! Scrollback
+! ----------------------------
+
+XTerm*saveLines: 10000
+XTerm*scrollBar: false
+
+! ----------------------------
+! Keyboard behavior
+! ----------------------------
+
+! Make Ctrl+Shift+C / V available
+XTerm*selectToClipboard: true
+
+! ----------------------------
+! Terminal behavior
+! ----------------------------
+
+XTerm*metaSendsEscape: true
+XTerm*eightBitInput: false
+
+! Allow bracketed paste support
+XTerm*allowPasteControls: true
+
