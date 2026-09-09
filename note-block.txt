@@ -1,0 +1,17 @@
+sudo rfkill block wifi
+rfkill list
+Wireless LAN
+    Soft blocked: yes
+    Hard blocked: no
+sudo rfkill unblock wifi
+sudo rfkill block all
+rfkill list
+
+sudo rfkill unblock all
+sudo nmcli radio wifi off
+sudo nmcli radio bluetooth off
+nmcli radio all
+sudo nmcli radio wifi on
+sudo rfkill block all
+rfkill list
+

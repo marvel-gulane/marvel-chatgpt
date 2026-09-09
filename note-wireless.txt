@@ -1,0 +1,40 @@
+sudo iw dev wlan0 scan | grep -E 'BSS |SSID:'
+sudo iw dev wlan0 scan
+BSS aa:bb:cc:dd:ee:ff(on wlan0)
+    SSID: MyWifi
+    signal: -45.00 dBm
+
+sudo iw dev wlan0 connect -w aa:bb:cc:dd:ee:ff
+
+sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf
+
+network={
+    ssid="MyWifi"
+    psk="your-password"
+    bssid=aa:bb:cc:dd:ee:ff
+}
+
+iw dev wlan0 link
+
+Connected to aa:bb:cc:dd:ee:ff (on wlan0)
+    SSID: MyWifi
+    freq: 5180
+    signal: -45 dBm
+
+
+
+nmcli device wifi list
+IN-USE  BSSID              SSID       MODE   CHAN  RATE        SIGNAL
+        AA:BB:CC:DD:EE:01  MyWifi     Infra  36    540 Mbit/s  90
+        AA:BB:CC:DD:EE:02  MyWifi     Infra  149   540 Mbit/s  65
+
+nmcli device wifi connect AA:BB:CC:DD:EE:01 password 'your-password'
+nmcli connection modify "MyWifi" 802-11-wireless.bssid AA:BB:CC:DD:EE:01
+nmcli connection down "MyWifi"
+nmcli connection up "MyWifi"
+
+iw dev wlan0 link
+nmcli device wifi list
+sudo iw dev wlan0 scan
+sudo iw dev wlan0 link
+
